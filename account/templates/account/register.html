@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="conteiner-forms">
+    <h1>Cadastro</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+            {{ field }}
+        {% endfor %}
+        <div>
+            <button type="submit">Cadastrar</button>
+        </div>
+        <div>
+            <a href={% url "login" %}>Voltar para o login</a>
+        </div>
+    </form>
+</div>
+{% endblock content %}

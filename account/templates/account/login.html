@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="conteiner-forms">
+        <h1>Login</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Usuário">
+            <input type="password" name="password" placeholder="Senha">
+            <div>
+                <button type="submit">Entrar</button>
+            </div>
+            <div>
+                <p>Cliente novo?<a href={% url "register" %}> comece aqui</a></p>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
