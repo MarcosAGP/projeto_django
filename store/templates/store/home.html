@@ -1,5 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-    
+    <section>
+        <h1>Produtos</h1>
+        <div class="products-grid">
+            {% for product in products %}
+                <div class="product-card">
+                    <img class="product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    <div class="product-name">{{ product.name }}</div>
+                    <div class="product-price">R$ {{ product.price }}</div>
+                    <div class="id">{{ product.id }}</div>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
 {% endblock content %}
