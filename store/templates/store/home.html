@@ -9,7 +9,6 @@
                     <img class="product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
                     <div class="product-name">{{ product.name }}</div>
                     <div class="product-price">R$ {{ product.price }}</div>
-                    <div class="id">{{ product.id }}</div>
                     <form method="POST">
                         {% csrf_token %}
                         <button type="submit" class="add-to-cart-btn">Adicionar ao Carrinho</button>

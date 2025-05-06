@@ -3,6 +3,13 @@
 {% block content %}
     <div class="conteiner-forms">
         <h1>Login</h1>
+        {% if messages %}
+            {% for message in messages %}
+                <ul class="messages">
+                    <li class="{{ message.tags}}">{{ message }}</li>
+                </ul>
+            {% endfor %}
+        {% endif %}
         <form method="POST">
             {% csrf_token %}
             <input type="text" name="username" placeholder="Usuário">

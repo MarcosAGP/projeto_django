@@ -3,6 +3,13 @@
 {% block content %}
 <div class="conteiner-forms">
     <h1>Cadastro</h1>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
     <form method="POST">
         {% csrf_token %}
         {% for field in form %}
