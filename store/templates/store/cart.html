@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Seu Carrinho</h2>
+    <table>
+        <tr>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Preço Total</th>
+            <th>Ação</th>
+        </tr>
+        {% for item in cart_items %}
+        <tr>
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>R$ {{ item.total_price }}</td>
+            <td>
+                <a href="{% url 'remove_from_cart' item.id %}" class="remove-btn">Remover</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h3>Total: R$ {{ total }}</h3>
+    <form method="post" action="{% url 'checkout' %}">
+        {% csrf_token %}
+        <button type="submit">Finalizar Compra</button>
+    </form>
+{% endblock %}
