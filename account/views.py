@@ -13,7 +13,7 @@ def register_view(request):
             password = form.cleaned_data['password1']
             user = authenticate(username=username, password=password)
             login(request, user)
-            return redirect('login')
+            return redirect('home')
         else:
             messages.error(request, 'Erro ao realizar cadastro')
             return redirect('register')
