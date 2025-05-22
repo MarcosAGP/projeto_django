@@ -155,6 +155,10 @@ ul {
 
 /* Carrinho */
 
+.cart {
+    margin: 20px;
+}
+
 h2, h3 {
     color: #333;
     text-align: center;
